@@ -1,0 +1,68 @@
+{% extends 'brand/main.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/download.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">My profile</h2>
+                        <img id="qwe" src="/static/images/qwe.png" alt="user" width="100" >
+                        <br>
+                        <div class="form-group">
+                            <label>Brand name</label>
+                            <input type="text" class="form-input" name="name" id="name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Brand email</label>
+                            <input type="email" class="form-input" name="email" id="email" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Location</label>
+                            <textarea rows="6" cols="30" class="form-input" name="location" id="location" ></textarea>
+                        </div>
+               
+        <br>
+                        <h2 class="form-title">Change password</h2>
+                    
+                        
+                        <div class="form-group">
+                            <form method="post" id="password" action="">
+                            <label>Old password</label>
+                            <input type="password" class="form-input" name="password" id="password" />
+                        </div>
+                        <div class="form-group">
+                            <label>New password</label>
+                            <input type="password" class="form-input" name="password" id="password" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Repeat password</label>
+                            <input type="password" class="form-input" name="re_password" id="password" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
+                        </div>
+                        <h4>If you forgot your old password?<a href="recover.html" style="color: green; text-align:center;">  Click here </a></h4>
+                        </form>
+                        
+                </div>
+            </div>
+        </section>
+     
+
+    </div>
+ <!-- JS -->
+ <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+ <script src="{% static 'js/settings.js' %}"></script>
+</body>
+
+{% endblock %}
