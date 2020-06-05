@@ -27,20 +27,20 @@ def home(request):
         
         
     
-    return render(request, 'brand/index.html')
+    return render(request, 'brand/home_page/index.html')
 
 
 def dashboard(request):
     prds = Product.objects.all()
     total_products = prds.count()
     context = {'total_products':total_products,'prds':prds}
-    return render(request, 'brand/dashboard.html',context)
+    return render(request, 'brand/home_page/dashboard.html',context)
 
 
 def products(request):
     prds = Product.objects.all()
     context ={'prds':prds}
-    return render(request, 'brand/products.html',context)
+    return render(request, 'brand/product_page/products.html',context)
 
 
 
@@ -78,7 +78,7 @@ def addproduct(request):
 
     # context ={'form':form}   
     # 
-    return render(request, 'brand/addproduct.html')
+    return render(request, 'brand/product_page/addproduct.html')
 
 
 def register(request):
@@ -101,28 +101,28 @@ def register(request):
         else:
             messages.info(request,'Passwords does not match')
     
-    return render(request, 'brand/register.html')
+    return render(request, 'brand/home_page/register.html')
 
 
 def designers(request):
     membs = Designer.objects.all()
-    return render(request, 'brand/designers.html',{'membs': membs})
+    return render(request, 'brand/designer_page/designers.html',{'membs': membs})
 
 
-def requests(request):
-    return render(request, 'brand/requests.html')
+def challenges(request):
+    return render(request, 'brand/challenge_page/challenges.html')
 
 
 def settings(request):
-    return render(request, 'brand/settings.html')
+    return render(request, 'brand/settings_page/settings.html')
 
 
 def market(request):
-    return render(request, 'brand/market.html')
+    return render(request, 'brand/market_page/market.html')
 
 
 def profile(request):
-    return render(request, 'brand/profile.html')
+    return render(request, 'brand/settings_page/profile.html')
 
 
 def dregister(request):
@@ -143,4 +143,4 @@ def dregister(request):
         return redirect('designers')
         
 
-    return render(request, 'brand/dregister.html')
+    return render(request, 'brand/designer_page/dregister.html')
