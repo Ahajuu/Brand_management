@@ -92,13 +92,17 @@
 			<header>
 				<h2>Login</h2>
 			</header>
-			<form method="post" action="{% url 'dashboard' %}">
+			<form method="POST" action="">
+				{% csrf_token %}
 				<div class=" gtr-50">
-					<div class="col-6 col-12-mobile"><input type="text" class="text" name="name" placeholder="Brand Name" /></div><br>
-					<div class="col-6 col-12-mobile"><input type="password" class="text" name="email" placeholder="Password" /></div>
+					<div class="col-6 col-12-mobile"><input type="text" class="text" name="bname" placeholder="Brand Name" /></div><br>
+					<div class="col-6 col-12-mobile"><input type="password" class="text" name="password" placeholder="Password" /></div>
 					<br>
 					<div class="col-12">
 						<ul class="actions">
+							{% for massage in messages %}
+									<li id='messages'>{{message}}</li>
+							{% endfor %}
 							<li><input type="submit" value="Login" /></li>
 						</ul>
 					</div>

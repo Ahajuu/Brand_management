@@ -4,6 +4,7 @@ urlpatterns = [
     path('', views.home,name="home"),
     path('dashboard/', views.dashboard,name="dashboard"),
     path('products/', views.products,name="products"),
+    path('products/addproduct/', views.addproduct,name="addproduct"),
     path('designers/', views.designers,name="designers"),
     path('market/', views.market,name="market"),
     path('requests/', views.requests,name="requests"),

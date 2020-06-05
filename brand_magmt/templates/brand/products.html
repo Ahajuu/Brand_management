@@ -1,26 +1,42 @@
 {% extends 'brand/main.html' %}
-
+{% load static %}
 {% block content %}
 
 <h1 class="w3-hide-small">Products</h1>
-<hr>
-<div class="zone blue grid-wrap">
-  	
-    <div class="box zone"><img width="auto" height="300px" src="https://images-na.ssl-images-amazon.com/images/I/613SYKy-XPL._UX522_.jpg">Name:T-shirt <br>Price:499</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:349</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:359</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:248</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:679</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:99</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:799</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:199</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:200</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:679</div>
-    <div class="box zone"><img width="auto" height="300px" src="https://www.finnsbali.com/wp-content/uploads/2017/08/Male-T-shirt-NO-FINNS-NO-FUN-450x450.jpg">Name:T-shirt <br>Price:399</div>
 
-</div>
+<!---------------------------------------->
 
+<section class="team-section">
+    <div class="container">
+        <div class="row">
+            <div class="team-items">
+                {% for i in prds %}
+                 <div class="item"><!--/static/images/logo/{{i.images}}-->
+                     <a href="{% url 'profile' %}" ><img src="{{i.images.url}}"  height="350px" alt="team" /></a>
+                     <div class="inner">
+                         <div class="info">
+                              <h5>Name:{{i.name}}</h5>
+                              <p>Price:{{i.price}}</p>
 
+                         </div>
+                     </div>
+                 </div>
+                 {% endfor %}
+                 <div class="item">
+                    <a href="{% url 'addproduct' %}" ><img src="{% static 'images/add.png' %}"  height="350px" alt="team" /></a>
+                    <div class="inner">
+                        <div class="info">
+                             <h5>New Product</h5>
+                             <p>Add now!</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</section>
+             
 
 {% endblock %}
