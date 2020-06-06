@@ -53,3 +53,16 @@ class Designer(models.Model):
     def __str__(self):
         return self.name
 
+
+
+class challenges(models.Model):
+    cname=models.CharField(max_length=30)
+    cdesc=models.TextField()
+    cparticipants=models.IntegerField()
+    cdesigners=models.IntegerField()
+    cdobegin=models.DateField()
+    
+    def __str__(self):
+        return self.cname
+
+

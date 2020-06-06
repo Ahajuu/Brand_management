@@ -109,8 +109,30 @@ def designers(request):
     return render(request, 'brand/designer_page/designers.html',{'membs': membs})
 
 
-def challenges(request):
-    return render(request, 'brand/challenge_page/challenges.html')
+def view_chal(request):
+    val=challenges.objects.all()
+    return render(request, 'brand/challenge_page/challenges.html',{'vals':val})
+
+def create_chal(request):
+    if request.method =='POST':
+        print("REQUEST"+str(request.POST))
+        ch_name=request.POST.get('challege_name')
+        ch_desc=request.POST.get('challege_desc')
+        ch_participants=request.POST.get('participants')
+        ch_designers=request.POST.get('Designers')
+        ch_date=request.POST.get('date')
+        if ch_designers<ch_participants:
+            form1=challenges(cname=ch_name,cdesc=ch_desc,cparticipants=ch_participants,cdesigners=ch_designers,cdobegin=ch_date)
+            form1.save()
+            messages.info(request,'challenge created successfully')
+            return redirect('/challenges')
+        else:
+            messages.info(request,'Designer count is higher than the total participants')    
+
+    
+    return render(request,'brand/challenge_page/create_challenge.html')
+
+
 
 
 def settings(request):
